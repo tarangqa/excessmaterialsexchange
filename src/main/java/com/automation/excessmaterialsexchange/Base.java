@@ -58,7 +58,6 @@ public class Base {
 	static DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy_HHmmss");
 	public static Logger log = LogManager.getLogger(Base.class.getName());
 
-
 	@BeforeSuite
 	public void before() throws Throwable {
 		// htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")
@@ -66,6 +65,7 @@ public class Base {
 		// Date()) + ".html");
 		htmlReporter = new ExtentHtmlReporter(
 				System.getProperty("user.dir") + "\\Automation_Report\\EME_AutomationReport.html");
+		htmlReporter.getTestRunnerLogs();
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
 		// htmlReporter.loadXMLConfig("src/main/java/resources/extent-config.xml");
@@ -90,31 +90,25 @@ public class Base {
 	}
 
 	public WebDriver setupBrowser() {
-		
+
 		prop = dataset();
-		String browserName =prop.getProperty("browser"); // This is to read broswer value defined in properties file
+		String browserName = prop.getProperty("browser"); // This is to read broswer value defined in properties file
 		System.out.println(browserName);
-		log.info("Current browser is : " +browserName);
-		
-		
-		if(browserName.equals("Chrome"))
-		{
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\Drivers\\chromedriver.exe");
+		log.info("Current browser is : " + browserName);
+
+		if (browserName.equals("Chrome")) {
+			System.setProperty("webdriver.chrome.driver",
+					System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
-		}
-		else if(browserName.equals("IE"))
-		{
-			System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"\\Drivers\\IEDriverServer.exe");
+		} else if (browserName.equals("IE")) {
+			System.setProperty("webdriver.ie.driver", System.getProperty("user.dir") + "\\Drivers\\IEDriverServer.exe");
 			driver = new InternetExplorerDriver();
-			
-		}
-		else if(browserName.equals("Firefox"))
-		{
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\Drivers\\geckodriver.exe");
+
+		} else if (browserName.equals("Firefox")) {
+			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\Drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 		}
-		
-		
+
 		driver.manage().window().maximize();
 		wait = new WebDriverWait(driver, 100);
 		wait = new WebDriverWait(driver, WebDriverWaitTimeout);

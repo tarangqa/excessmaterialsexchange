@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
 import junit.framework.Assert;
