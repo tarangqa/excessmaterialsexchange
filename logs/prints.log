@@ -1,0 +1,5 @@
+18:17:12.891 [main] INFO  com.automation.excessmaterialsexchange.Base - Current browser isFirefox
+18:17:46.932 [main] INFO  pageObjects.EME_landingpage - Current URL is : https://test.excessmaterialsexchange.com/
+18:17:48.044 [main] INFO  pageObjects.EME_landingpage - URL load successfully, https://test.excessmaterialsexchange.com/
+18:17:48.897 [main] INFO  pageObjects.EME_LoginPage - login page load success
+18:18:05.277 [main] INFO  pageObjects.EME_LoginPage - Login Successfull
