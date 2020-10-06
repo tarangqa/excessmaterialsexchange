@@ -52,6 +52,7 @@ public class Base {
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest testEnv;
+	public static ExtentTest test_SmokeTest;
 	public int WebDriverWaitTimeout = 300;
 	public static boolean AssertEnable = false;
 
